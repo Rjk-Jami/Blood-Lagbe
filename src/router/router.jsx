@@ -7,6 +7,7 @@ import Home from "../pages/Home/Home";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import AboutTeam from "../pages/AboutTeam/AboutTeam";
 import Contact from "../pages/Contact/Contact";
+import OptionForHome from "../pages/OptionForHome/OptionForHome";
 
 
 
@@ -32,6 +33,10 @@ import Contact from "../pages/Contact/Contact";
         {
           path: "contact",
           element: <Contact></Contact>
+        },
+        {
+          path: "OptionForHome",
+          element: <OptionForHome></OptionForHome>
         },
         
       ],

@@ -15,6 +15,9 @@ const Navbar = () => {
   else if(location.pathname === '/aboutUs'){
     currentLocation = true
   } 
+  else if(location.pathname === '/OptionForHome'){
+    currentLocation = true
+  } 
   else {
     currentLocation = false
   }
@@ -39,7 +42,7 @@ const Navbar = () => {
         </div>
         {/* tab view */}
         <div className="hidden md:block lg:hidden">
-        <FaBars  className='text-white text-2xl'/>
+       <NavLink to={'OptionForHome'}> <FaBars  className='text-white text-2xl'/></NavLink>
         </div>
       </div>
 

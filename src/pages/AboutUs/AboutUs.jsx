@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaXmark } from "react-icons/fa6";
 import Copyright from '../../component/copyright/Copyright';
+import { NavLink } from 'react-router-dom';
 
 const AboutUs = () => {
     return (
@@ -39,13 +40,13 @@ const AboutUs = () => {
                     <div className="w-full h-[100%] absolute bg-black bg-opacity-25  rounded-[40px] backdrop-blur-3xl -z-10"></div>
                     <div className=" pt-9  w-[80%] mx-auto z-20 flex justify-between ">
                         <div className="hidden md:block lg:hidden relative z-30">
-                            <svg className='text-white ' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="text-white w-7 h-7" viewBox="0 0 16 16">
+                            <NavLink to={'/OptionForHome'}> <svg className='text-white ' xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffffff" class="text-white w-7 h-7" viewBox="0 0 16 16">
                                 <path d="M5.921 11.9 1.353 8.62a.72.72 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z" />
-                            </svg>
+                            </svg></NavLink>
 
                         </div>
                         <div className="hidden md:block lg:hidden ">
-                            <FaXmark className='w-7 h-7 text-white '></FaXmark>
+                            <NavLink to={'/'}> <FaXmark className='w-7 h-7 text-white '></FaXmark></NavLink>
 
 
                         </div>
@@ -83,16 +84,16 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-               
+
 
             </div>
             <div className="">
-                    <div className="flex justify-center items-center ">
-                        <div className="hidden md:block lg:hidden text-white fixed md:bottom-8 m:bottom-10    banglaReg text-center text-xs z-30">
-                            <p className=''><span className='banglaBold'>&copy;ব্লাড লাগবে ২০২৪</span>, সর্বস্বত্ব সংরক্ষিত<br></br>ব্লাড লাগবে, বাংলাদেশ </p>
-                        </div>
+                <div className="flex justify-center items-center ">
+                    <div className="hidden md:block lg:hidden text-white fixed md:bottom-8 m:bottom-10    banglaReg text-center text-xs z-30">
+                        <p className=''><span className='banglaBold'>&copy;ব্লাড লাগবে ২০২৪</span>, সর্বস্বত্ব সংরক্ষিত<br></br>ব্লাড লাগবে, বাংলাদেশ </p>
                     </div>
                 </div>
+            </div>
         </>
 
     );
