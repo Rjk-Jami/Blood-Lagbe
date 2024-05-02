@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaXmark } from 'react-icons/fa6';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const OptionForHome = () => {
+// start - if smaller than 768 and bigger than 1199 than navigate to home
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const isWideScreen = screenWidth >= 768 && screenWidth <= 1199;
+
+    if (!isWideScreen) {
+        // Navigate to the specified route if the screen width is not in the specified range
+        navigate('/');
+        return null; // Render nothing if navigating
+    }
+
+    // end
     return (
 
         <div className=" relative z-20 h-[100vh] w-full hidden md:flex md:items-center justify-center  lg:hidden ">
