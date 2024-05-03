@@ -16,7 +16,7 @@ const AboutUs = () => {
                         <p className='banglaBold cursor-pointer 2xl:text-xl xl:text-lg lg:text-[14px] '>আরও দেখুন...</p>
                     </div>
                     <div className="flex flex-col justify-center items-center h-full ">
-                        <div className=" banglaLight 2xl:text-xl xl:text-xl lg:text-[14px] tracking-wider	  flex flex-col text-[#1E1E1E]">
+                        <div className=" banglaLight 2xl:text-xl xl:text-xl lg:text-[14px]  tracking-wider	  flex flex-col text-[#1E1E1E] ">
                             <p>সুরক্ষিত স্বাস্থ্য সংক্রান্ত সেবা প্রদান করার জন্য আপনার ব্লাড ডোনেশন অর্গানাইজেশনের একটি বায়ো খুব উপযুক্ত হতে পারে।<br></br>এই বায়োটি সম্প্রতি যেসমস্যার সমাধানে আপনার অর্গানাইজেশন সহায়তা করতে পারে তা সম্পর্কে তথ্য রয়েছে কি না তা<br></br>নির্ধারণ করা হবে।</p>
                             <p>একটি বায়ো লেখার সাধারণ ধারণা দেওয়ার জন্য, নিম্নলিখিত তথ্যগুলি যোগ করা যেতে পারে:</p>
                             <p><ul className='list-decimal list-inside'>
@@ -51,7 +51,7 @@ const AboutUs = () => {
 
                         </div>
                     </div>
-                    <div className="flex items-center ">
+                    <div className="   overflow-clip md:h-[92%] m:h-[95%]">
                         <div className="">
                             <div className="pt-2 pb-11 hidden md:block lg:hidden">
                                 <p className="banglaBold text-center text-2xl  text-white ">
@@ -59,7 +59,7 @@ const AboutUs = () => {
                                 </p>
                                 <div className='mt-5 h-[2px] mx-auto w-3/5 bg-white'></div>
                             </div>
-                            <div className=" banglaLight md:text-md m:text-xl tracking-wider	  flex flex-col text-white text-center w-[80%] m:w-[70%] mx-auto">
+                            <div className=" banglaLight md:text-md m:text-xl tracking-wider	  flex flex-col text-white text-center w-[80%] m:w-[70%] mx-auto h-full text-ellipsis overflow-hidden">
                                 <p>সুরক্ষিত স্বাস্থ্য সংক্রান্ত সেবা প্রদান করার জন্য আপনার ব্লাড ডোনেশন অর্গানাইজেশনের একটি বায়ো খুব উপযুক্ত হতে পারে। </p>
                                 <p>এই বায়োটি সম্প্রতি যেসমস্যার সমাধানে আপনার অর্গানাইজেশন সহায়তা করতে পারে তা সম্পর্কে তথ্য রয়েছে কি না তা নির্ধারণ করা হবে।</p>
                                 <p>একটি বায়ো লেখার সাধারণ ধারণা দেওয়ার জন্য, নিম্নলিখিত</p>
@@ -78,7 +78,7 @@ const AboutUs = () => {
                                 <p>এই তথ্য প্রদান করা যায় একটি বায়োগ্রাফিতে, আপনার অর্গানাইজেশনের সম্পর্কে সহজবোধ্য, প্রস্তুতপ্রজ্ঞ এবং স্বীকৃত তথ্য সরবরাহ করার জন্য।</p>
                                 <br></br>
                                 <br></br>
-                                <p>আপনি নিজে বা আপনার অর্গানাইজেশনের জন্য একটি বায়ো লেখার তৈরি করতে না চাইলে, একজন পেশাদার লেখক বা কপিরাইটারের সাথে যোগাযোগ করতে পারেন যে আপনাকে এই কাজে সাহায্য করতে সক্ষম হবে।</p>
+                                <p className='text-ellipsis overflow-hidden'>আপনি নিজে বা আপনার অর্গানাইজেশনের জন্য একটি বায়ো লেখার তৈরি করতে না চাইলে, একজন পেশাদার লেখক বা কপিরাইটারের সাথে যোগাযোগ করতে পারেন যে আপনাকে এই কাজে সাহায্য করতে সক্ষম হবে।</p>
                             </div>
                         </div>
                     </div>

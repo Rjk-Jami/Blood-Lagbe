@@ -36,13 +36,13 @@ const Navbar = () => {
         </div>
         {/* large screen */}
         <div className="md:hidden lg:flex text-white   text-[14px]  2xl:gap-[4.5rem] lg:gap-16  z-10 cursor-pointer ">
-          <NavLink to={'aboutUs'} className={({ isActive }) => isActive ? ` bg-black banglaBold bg-opacity-25 rounded-3xl w-[8.063rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem] ` : `banglaNav bg-black bg-opacity-5  hover:bg-opacity-25 rounded-3xl w-[8.063rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem] `} >আমাদের সম্পর্কে</NavLink>
-          <NavLink to={'aboutTeam'} className={({ isActive }) => isActive ? ` bg-black banglaBold bg-opacity-25 rounded-3xl w-[7.313rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem]` : `banglaNav bg-black bg-opacity-5  hover:bg-opacity-25 rounded-3xl w-[7.313rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem]`} >আমাদের টীম</NavLink>
-          <NavLink to={'contact'} className={({ isActive }) => isActive ? `banglaBold bg-black bg-opacity-25 rounded-3xl  w-[6.125rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem] ` : `banglaNav bg-black bg-opacity-5  hover:bg-opacity-25 rounded-3xl  w-[6.125rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem] `}  >যোগাযোগ</NavLink>
+          <NavLink to={'/aboutUs'} className={({ isActive }) => isActive ? ` bg-black banglaBold bg-opacity-25 rounded-3xl w-[8.063rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem] ` : `banglaNav bg-black bg-opacity-5  hover:bg-opacity-25 rounded-3xl w-[8.063rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem] `} >আমাদের সম্পর্কে</NavLink>
+          <NavLink to={'/aboutTeam'} className={({ isActive }) => isActive ? ` bg-black banglaBold bg-opacity-25 rounded-3xl w-[7.313rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem]` : `banglaNav bg-black bg-opacity-5  hover:bg-opacity-25 rounded-3xl w-[7.313rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem]`} >আমাদের টীম</NavLink>
+          <NavLink to={'/contact'} className={({ isActive }) => isActive ? `banglaBold bg-black bg-opacity-25 rounded-3xl  w-[6.125rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem] ` : `banglaNav bg-black bg-opacity-5  hover:bg-opacity-25 rounded-3xl  w-[6.125rem] h-[2.688rem] flex justify-center items-center pt-[0.1rem] `}  >যোগাযোগ</NavLink>
         </div>
         {/* tab view */}
         <div className="hidden md:block lg:hidden">
-       <NavLink to={'OptionForHome'}> <FaBars  className='text-white text-2xl'/></NavLink>
+       <NavLink to={'/OptionForHome'}> <FaBars  className='text-white text-2xl'/></NavLink>
         </div>
       </div>
 

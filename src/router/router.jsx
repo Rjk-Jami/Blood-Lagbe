@@ -8,6 +8,7 @@ import AboutUs from "../pages/AboutUs/AboutUs";
 import AboutTeam from "../pages/AboutTeam/AboutTeam";
 import Contact from "../pages/Contact/Contact";
 import OptionForHome from "../pages/OptionForHome/OptionForHome";
+import LoginLayout from "../Layouts/LoginLayout";
 
 
 
@@ -41,6 +42,29 @@ import OptionForHome from "../pages/OptionForHome/OptionForHome";
         
       ],
     },
+    {
+      path: "login",
+      element: <LoginLayout />,
+      // errorElement: <ErrorPage />,
+      children: [
+        
+        // {
+        //   path: "/",
+        //   element: <Home></Home>
+        // },
+        // {
+        //   path: "aboutUs",
+        //   element: <AboutUs></AboutUs>
+        // },
+        // {
+        //   path: "aboutTeam",
+        //   element: <AboutTeam></AboutTeam>
+        // },
+        
+        
+      ],
+    },
+
     
 
   ]);
