@@ -8,7 +8,10 @@ const Navbar = () => {
 
   // Check if location is '/aboutUs', if so, return null to hide the Navbar
   let currentLocation =  false
+  let currentLocationForHome =  false
   
+
+
   if (location.pathname === '/aboutTeam'){
     currentLocation = true
   }
@@ -17,6 +20,9 @@ const Navbar = () => {
   } 
   else if(location.pathname === '/OptionForHome'){
     currentLocation = true
+  } 
+  else if(location.pathname === '/'){
+    currentLocationForHome = true
   } 
   else {
     currentLocation = false
@@ -28,7 +34,9 @@ const Navbar = () => {
   // className={({ isActive }) => isActive ? `${classForSideBarMdActive}` : `${classForSideBarMd}`} 
   //  className="relative z-20 hidden md:block containerNew mx-auto 2xl:mt-[3rem] lg:mt-[2rem]  md:mt-[3.563rem]"
   return (
-    <div className={ currentLocation ? `relative z-20 hidden lg:block containerNew mx-auto 2xl:mt-[3rem] lg:mt-[2rem]  md:mt-[3.563rem]` : `relative z-20 hidden md:block containerNew mx-auto 2xl:mt-[3rem] lg:mt-[2rem]  md:mt-[3.563rem]`}>
+    <div className= {currentLocationForHome ? " " :"md:relative lg:static w-full" }>
+      <div className= {currentLocationForHome ? " " :"md:fixed lg:static w-full z-50" }>
+      <div className={ currentLocation ? `relative z-20 hidden lg:block containerNew mx-auto 2xl:mt-[3rem] lg:mt-[2rem]  md:mt-[3.563rem]` : `relative z-20 hidden md:block containerNew mx-auto 2xl:mt-[3rem] lg:mt-[2rem]  md:mt-[3.563rem]`}>
       <div className="flex items-center justify-between">
         {/* logo */}
         <div className="">
@@ -46,6 +54,8 @@ const Navbar = () => {
         </div>
       </div>
 
+    </div>
+      </div>
     </div>
   );
 };

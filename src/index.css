@@ -111,4 +111,21 @@
     }
 }
 
+.text-login{
+    color: #DF0707;
+}
+.bg-login{
+    background-color: #DF0707;
+}
 
+@layer base {
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+  
+  .text-b{
+    color: #1E1E1E;
+  }

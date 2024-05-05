@@ -9,6 +9,8 @@ import AboutTeam from "../pages/AboutTeam/AboutTeam";
 import Contact from "../pages/Contact/Contact";
 import OptionForHome from "../pages/OptionForHome/OptionForHome";
 import LoginLayout from "../Layouts/LoginLayout";
+import Login from "../pages/Login/Login/Login";
+import Verify from "../pages/Login/Verify/Verify";
 
 
 
@@ -48,14 +50,14 @@ import LoginLayout from "../Layouts/LoginLayout";
       // errorElement: <ErrorPage />,
       children: [
         
-        // {
-        //   path: "/",
-        //   element: <Home></Home>
-        // },
-        // {
-        //   path: "aboutUs",
-        //   element: <AboutUs></AboutUs>
-        // },
+        {
+          path: "/login",
+          element: <Login></Login>,
+        },
+        {
+          path: "verify/:id",
+          element: <Verify></Verify>
+        },
         // {
         //   path: "aboutTeam",
         //   element: <AboutTeam></AboutTeam>
