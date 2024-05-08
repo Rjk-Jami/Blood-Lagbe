@@ -127,7 +127,7 @@ const Login3 = () => {
                             <div className="text-[#1E1E1E] banglaBold text-xl"><p>&#40;+৮৮&#41;</p></div>
 
                             <div id="otp" className="flex banglaBold flex-row justify-center text-center text-b  ">
-                                <input placeholder='০' id='phone' ref={inputs} className=" placeholder:text-slate-200 text-xl focus:outline-none h-10 w-full  text-center form-control rounded" type="text" maxLength="11" onKeyDown={handleKey} />
+                                <input placeholder='০১৭১২-৩৪৫৬৭৮' id='phone' autoComplete="off" onPaste={(e) => e.preventDefault()} onDrop={(e) => e.preventDefault()} ref={inputs} className="  text-xl focus:outline-none h-10 w-full  text-center form-control rounded" type="text" maxLength="11" onKeyDown={handleKey} />
 
                             </div>
 
