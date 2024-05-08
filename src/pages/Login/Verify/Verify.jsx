@@ -6,7 +6,8 @@ const Verify = () => {
     const [inputSuccess, setInputSuccess] = useState(false);
     const [phone, setPhone] = useState('');
     const code = '8888'
-    const {
+    const id = "0001"
+        const {
         register,
         handleSubmit,
         watch,
@@ -94,7 +95,7 @@ const Verify = () => {
                         <p className='banglaSemi text-login text-center mt-2 text-xs '>পুনরায় ওটিপি পাঠান</p>
                     </div>
                     <div className="flex ">
-                        <NavLink to={`verify/${phone}`} className=' w-[90%] mx-auto'><button disabled={!inputSuccess} className={inputSuccess ? `bg-[#E7152A]  w-full h-16 rounded-full outline-none border-none banglaBold text-md` : ` w-full   bg-[#B70D1A] h-16 rounded-full outline-none border-none banglaBold text-md`}>শুরু করুন</button></NavLink>
+                        <NavLink to={`/login/signUp/${id}`} className=' w-[90%] mx-auto'><button disabled={!inputSuccess} className={inputSuccess ? `bg-[#E7152A]  w-full h-16 rounded-full outline-none border-none banglaBold text-md` : ` w-full   bg-[#B70D1A] h-16 rounded-full outline-none border-none banglaBold text-md`}>শুরু করুন</button></NavLink>
                     </div>
                 </form>
             </div>

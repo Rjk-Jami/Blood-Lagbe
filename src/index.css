@@ -110,6 +110,14 @@
         max-width: 1387px;
     }
 }
+.hForLayout{
+    height: calc(100vh - 7.346rem) ;
+}
+@media (max-width: 1199px) {
+    .hForLayout {
+        height: calc(100vh);
+    }
+}
 
 .text-login{
     color: #DF0707;

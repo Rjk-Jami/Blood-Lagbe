@@ -11,6 +11,9 @@ import OptionForHome from "../pages/OptionForHome/OptionForHome";
 import LoginLayout from "../Layouts/LoginLayout";
 import Login from "../pages/Login/Login/Login";
 import Verify from "../pages/Login/Verify/Verify";
+import SignUp from "../pages/Login/SignUp/SignUp";
+import Verify2 from "../pages/Login/Verify/Verify2";
+import Login2 from "../pages/Login/Login/Login2";
 
 
 
@@ -55,8 +58,20 @@ import Verify from "../pages/Login/Verify/Verify";
           element: <Login></Login>,
         },
         {
+          path: "/login/test",
+          element: <Login2></Login2>
+        },
+        {
           path: "verify/:id",
           element: <Verify></Verify>
+        },
+        {
+          path: "verify2/:id",
+          element: <Verify2></Verify2>
+        },
+        {
+          path: "signUp/:id",
+          element: <SignUp></SignUp>
         },
         // {
         //   path: "aboutTeam",

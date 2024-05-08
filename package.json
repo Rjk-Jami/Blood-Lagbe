@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "banglanumber-to-englishnumber": "^1.0.1",
     "bengali-number": "^1.1.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
