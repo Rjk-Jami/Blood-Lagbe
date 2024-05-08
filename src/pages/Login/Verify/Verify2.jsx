@@ -6,7 +6,7 @@ const Verify2 = () => {
     const [inputSuccess, setInputSuccess] = useState(false);
     const code = '3333';
     const id = "0001";
-    const inputs = useRef([]);
+    const inputs = useRef(Array(4).fill(null));
     const toEn = n => n.replace(/[০-৯]/g, d => "০১২৩৪৫৬৭৮৯".indexOf(d));
 
     useEffect(() => {
@@ -16,7 +16,9 @@ const Verify2 = () => {
 
         return () => {
             inputs.current.forEach(input => {
-                input.removeEventListener('keydown', handleInputChange);
+                if (input) {
+                    input.removeEventListener('keydown', handleInputChange);
+                }
             });
         };
     }, []);
@@ -37,7 +39,7 @@ const Verify2 = () => {
     };
 
     const handleInputChange = (event) => {
-        const { target, key, keyCode } = event;
+        const { target, key, keyCode, code } = event;
         const currentIndex = inputs.current.indexOf(target);
         const inputCode = toBengaliNumber(target.value);
 
@@ -46,35 +48,43 @@ const Verify2 = () => {
             if (currentIndex !== 0) {
                 inputs.current[currentIndex - 1].focus();
                 event.preventDefault();
-                
+
             }
         }
-        else if(key === "ArrowRight" || key === ""){
+        else if (key === "ArrowRight" || key === "") {
             if (currentIndex !== inputs.current.length - 1) {
                 inputs.current[currentIndex + 1].focus();
                 event.preventDefault();
             }
-        }  else if(key === "ArrowLeft"){
+        } else if (key === "ArrowLeft") {
             if (currentIndex !== 0) {
                 inputs.current[currentIndex - 1].focus();
                 event.preventDefault();
-                
+
             }
         } else if (!isNaN(Number(key))) {
-            target.value = toBengaliNumber(key);
-            if (currentIndex !== inputs.current.length - 1) {
-                inputs.current[currentIndex + 1].focus();
+            if (code === "Space") {
                 event.preventDefault();
+
+            }
+
+
+            else {
+                target.value = toBengaliNumber(key);
+                if (currentIndex !== inputs.current.length - 1) {
+                    inputs.current[currentIndex + 1].focus();
+                    event.preventDefault();
+                }
             }
         }
-        else if (isNaN((key))) {
+        else if (isNaN((key)) && target.value === '') {
             target.value = '';
-            
-                event.preventDefault();
-            
+
+            event.preventDefault();
+
         }
 
-       
+
     };
 
     return (
@@ -105,9 +115,9 @@ const Verify2 = () => {
                         </div>
                         <div className="flex flex-row items-center justify-center text-center banglaBold text-xl mt-2">
                             <div id="otp" className="flex flex-row justify-center text-center px-2 text-b ">
-                                <input ref={el => inputs.current[0] = el} className="m-2 bg-[#D9D9D9] h-10 w-10 text-center form-control rounded" type="text" maxLength="1" onKeyDown={handleKey}/>
-                                <input ref={el => inputs.current[1] = el} className="m-2 bg-[#D9D9D9] h-10 w-10 text-center form-control rounded" type="text" maxLength="1" onKeyDown={handleKey}/>
-                                <input ref={el => inputs.current[2] = el} className="m-2 bg-[#D9D9D9] h-10 w-10 text-center form-control rounded" type="text" maxLength="1" onKeyDown={handleKey}/>
+                                <input ref={el => inputs.current[0] = el} className="m-2 bg-[#D9D9D9] h-10 w-10 text-center form-control rounded" type="text" maxLength="1" onKeyDown={handleKey} />
+                                <input ref={el => inputs.current[1] = el} className="m-2 bg-[#D9D9D9] h-10 w-10 text-center form-control rounded" type="text" maxLength="1" onKeyDown={handleKey} />
+                                <input ref={el => inputs.current[2] = el} className="m-2 bg-[#D9D9D9] h-10 w-10 text-center form-control rounded" type="text" maxLength="1" onKeyDown={handleKey} />
                                 <input ref={el => inputs.current[3] = el} className="m-2 bg-[#D9D9D9] h-10 w-10 text-center form-control rounded" type="text" maxLength="1" onKeyDown={handleKey} />
                             </div>
                         </div>

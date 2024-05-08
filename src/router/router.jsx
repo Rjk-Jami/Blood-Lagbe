@@ -14,6 +14,7 @@ import Verify from "../pages/Login/Verify/Verify";
 import SignUp from "../pages/Login/SignUp/SignUp";
 import Verify2 from "../pages/Login/Verify/Verify2";
 import Login2 from "../pages/Login/Login/Login2";
+import Login3 from "../pages/Login/Login/Login3";
 
 
 
@@ -55,20 +56,24 @@ import Login2 from "../pages/Login/Login/Login2";
         
         {
           path: "/login",
-          element: <Login></Login>,
+          element:<Login3></Login3>,
         },
-        {
-          path: "/login/test",
-          element: <Login2></Login2>
-        },
+        // {
+        //   path: "/login/test",
+        //   element: <Login2></Login2>
+        // },
+        // {
+        //   path: "/login/test2",
+        //   element: <Login3></Login3>
+        // },
         {
           path: "verify/:id",
-          element: <Verify></Verify>
-        },
-        {
-          path: "verify2/:id",
           element: <Verify2></Verify2>
         },
+        // {
+        //   path: "verify2/:id",
+        //   element: <Verify2></Verify2>
+        // },
         {
           path: "signUp/:id",
           element: <SignUp></SignUp>
