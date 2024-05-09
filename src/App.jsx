@@ -9,7 +9,10 @@ function App() {
 
   return (
     <>
-      <div className="overflow-hidden h-screen  bg-gradient-to-b from-[#FC1C36] to-[#AA0B17] relative">
+      <div className="overflow-hidden  relative">
+        <div className="fixed h-screen w-full -z-50 bg-gradient-to-b md:from-[#FC1C36] from-[#FD1C36] to-[#9B000B] md:to-[#AA0B17]">
+
+        </div>
         {/* background */}
         <Background></Background>
         <Copyright></Copyright>
