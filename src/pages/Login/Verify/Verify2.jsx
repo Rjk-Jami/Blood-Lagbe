@@ -43,6 +43,12 @@ const Verify2 = () => {
         const currentIndex = inputs.current.indexOf(target);
         const inputCode = toBengaliNumber(target.value);
 
+        // for bangla
+        const bangla = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+
+        const findBangla = bangla.find(number => number === key);
+
+
         if (key === "Backspace" || key === "Delete") {
             target.value = '';
             if (currentIndex !== 0) {
@@ -69,7 +75,9 @@ const Verify2 = () => {
             }
 
 
+
             else {
+
                 target.value = toBengaliNumber(key);
                 if (currentIndex !== inputs.current.length - 1) {
                     inputs.current[currentIndex + 1].focus();
@@ -77,6 +85,15 @@ const Verify2 = () => {
                 }
             }
         }
+        else if (findBangla) {
+            target.value = key;
+            if (currentIndex !== inputs.current.length - 1) {
+                inputs.current[currentIndex + 1].focus();
+                event.preventDefault();
+            }
+
+        }
+
         else if (isNaN((key)) && target.value === '') {
             target.value = '';
 
@@ -86,8 +103,8 @@ const Verify2 = () => {
 
 
     };
-
-    return (
+                
+    return(
         <div className='h-full flex items-center'>
             <div className="h-[80%] w-[80%]  mx-auto ">
                 <form className='flex flex-col justify-between h-full' id="otp-form">

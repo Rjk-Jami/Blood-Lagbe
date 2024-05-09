@@ -9,7 +9,6 @@ const Login3 = () => {
     const navigate = useNavigate()
     const inputs = useRef([]);
     const { isValid, verification } = usePhoneVerification()
-    const toEn = n => n.replace(/[০-৯]/g, d => "০১২৩৪৫৬৭৮৯".indexOf(d));
     // let inputText = []
     const { handleInputChange ,phoneForSubmit } = useTakeNumberAsBangla()
     useEffect(() => {
