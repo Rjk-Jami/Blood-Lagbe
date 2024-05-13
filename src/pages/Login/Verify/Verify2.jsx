@@ -105,12 +105,12 @@ const Verify2 = () => {
     };
                 
     return(
-        <div className='h-full flex items-center'>
+        <div className='h-[22rem] md:h-full flex items-center'>
             <div className="h-[80%] w-[80%]  mx-auto ">
                 <form className='flex flex-col justify-between h-full' id="otp-form">
                     <div className="banglaBold text-2xl text-login">
                         <p className='text-center'>ওটিপি</p>
-                        <div className="w-36 h-[2px] bg-login mx-auto mt-2"></div>
+                        <div className="w-32 md:w-36 h-[2px] bg-login mx-auto mt-2"></div>
                     </div>
                     <div className="">
                         <p className='banglaSemi text-login text-sm'>ভেরিফাই করুন</p>
@@ -138,8 +138,8 @@ const Verify2 = () => {
                                 <input ref={el => inputs.current[3] = el} className="m-2 bg-[#D9D9D9] h-10 w-10 text-center form-control rounded" type="text" maxLength="1" onKeyDown={handleKey} />
                             </div>
                         </div>
-                        <div className="w-[18.549rem] h-[1px] bg-login"></div>
-                        <p className='banglaSemi text-login text-center mt-2 text-xs '>পুনরায় ওটিপি পাঠান</p>
+                        <div className="w-[18.549rem] h-[1px] bg-login mt-2"></div>
+                        <p className='banglaSemi text-login text-center mt-2 text-xs cursor-pointer'>পুনরায় ওটিপি পাঠান</p>
                     </div>
                     <div className="flex">
                         <NavLink to={`/login/signUp/${id}`} className=' w-[90%] mx-auto'>

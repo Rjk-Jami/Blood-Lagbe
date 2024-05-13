@@ -1,16 +1,23 @@
 import { toBengaliNumber } from 'bengali-number';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { NavLink, useNavigate } from 'react-router-dom';
 import usePhoneVerification from '../../../hooks/usePhoneVerification';
 import useTakeNumberAsBangla from '../../../hooks/useTakeNumberAsBangla';
+import { numBang } from 'bang-utils';
+import { GlobalVariableContext } from '../../../component/Provider/GlobalVariable';
 const Login3 = () => {
     // const [phoneForSubmit, setPhoneForSubmit] = useState('');
+    const toEn = n => n.replace(/[০-৯]/g, d => "০১২৩৪৫৬৭৮৯".indexOf(d));
+    const {isValid, setValid , phoneForSubmitMobile} = useContext(GlobalVariableContext)
+
+
     const navigate = useNavigate()
     const inputs = useRef([]);
-    const { isValid, verification } = usePhoneVerification()
+    const {  verification } = usePhoneVerification()
     // let inputText = []
-    const { handleInputChange ,phoneForSubmit } = useTakeNumberAsBangla()
+    // const { phoneForSubmit } = useTakeNumberAsBangla()
+    const { handleInputChange ,phoneForSubmit, handleMobileInputKey } = useTakeNumberAsBangla()
     useEffect(() => {
         const phoneInput = document.getElementById("phone");
         if (phoneInput) {
@@ -23,41 +30,67 @@ const Login3 = () => {
             }
         };
     }, []);
-    const handleKey = (e) => {
-
+    const handleKey = (event) => {
         let concatenatedValue = phoneForSubmit;
-console.log(concatenatedValue)
+// console.log(concatenatedValue)
+// console.log("object")
         // const inputCode = toEn(concatenatedValue)
         const inputCode = concatenatedValue
-        console.log(inputCode, "concatenatedValue")
-        // Check if the concatenated value is a number or a character
-        if (inputCode.length === 11) {
-            // setInputSuccess(true);
-            verification(phoneForSubmit)
-        }
-        else {
-            verification(phoneForSubmit)
+        // console.log(inputCode, "concatenatedValue")
+       
+        if(event.which !== 229){
+            if (inputCode.length === 11  ) {
+                // setInputSuccess(true);
+                console.log("pc valid")
+                setValid(verification(phoneForSubmit))
+            }
+            else {
+                setValid(verification(phoneForSubmit))
+            }
         }
 
 
     };
+    
+    
+   
+    // let userInput = ''
+    // const handleMobileInputKey =(event)=>{
+    //    if(event.which === 229){
+        
+    //     userInput = event.target.value;
+    //     const userInputEn = toEn(userInput)
+    //     const numbersOnly = userInputEn.replace(/\D/g, '');
+    //      if(!isNaN(numbersOnly)){
+    //         event.target.value = numBang(numbersOnly)
+    //         console.log(numbersOnly,"userInput is not nan") 
+    //     }
+    //     else{
+    //         event.target.value = numBang(numbersOnly)
+    //     }  
+    //    }
+         
+    // }
 
     const handleSubmit = (event) => {
-        // Assuming mobileNumber is coming from an input field
+       console.log(event)
 
-        verification(phoneForSubmit)
-        if (isValid) {
+        if (isValid && phoneForSubmit) {
             console.log(phoneForSubmit); // Logging the mobileNumber
             navigate(`/login/verify/${phoneForSubmit}`)
+        }
+        else if(isValid && phoneForSubmitMobile){
+            console.log(phoneForSubmitMobile); // Logging the mobileNumber
+            navigate(`/login/verify/${phoneForSubmitMobile}`)
         }
 
         event.preventDefault()
     }
 
     return (
-        <div className='h-full flex items-center'>
+        <div className=' h-[18rem] md:h-full flex  items-center'>
             {/* w-[18.549rem] */}
-            <div className=" h-[75%] w-[80%]  mx-auto ">
+            <div className=" h-[75%] w-[82%]  mx-auto ">
 
                 <form onSubmit={handleSubmit} className='flex flex-col justify-between h-full' >
                     <div className="banglaBold text-2xl text-login">
@@ -70,8 +103,13 @@ console.log(concatenatedValue)
                             <div className="text-[#1E1E1E] banglaBold text-xl"><p>&#40;+৮৮&#41;</p></div>
 
                             <div id="otp" className="flex banglaBold flex-row justify-center text-center text-b  ">
-                                <input placeholder='০১৭১২-৩৪৫৬৭৮' id='phone' autoComplete="off" onPaste={(e) => e.preventDefault()} onDrop={(e) => e.preventDefault()} ref={inputs} className="  text-xl focus:outline-none h-10 w-full  text-center form-control rounded" type="text" maxLength="11" onKeyDown={handleKey} />
 
+                                {/* <input placeholder='০১৭১২-৩৪৫৬৭৮' id='phone' autoComplete="off" onPaste={(e) => e.preventDefault()} onDrop={(e) => e.preventDefault()} ref={inputs} className=" bg-transparent hidden  text-xl focus:outline-none h-10 w-full  text-b text-center form-control rounded" type="text" maxLength="11"  onKeyUp={(event) => { handleKey(event) ;
+                                handleMobileInputKey(event)}} onChange={handleMobileInputChange} 
+       /> */}
+      {/* hidden md:block */}
+                                <input placeholder='০১৭১২-৩৪৫৬৭৮' id='phone' autoComplete="off" onPaste={(e) => e.preventDefault()} onDrop={(e) => e.preventDefault()}  className=" bg-transparent  text-xl focus:outline-none h-10 w-full  text-b text-center form-control rounded" type="text" maxLength="11"  onKeyUp={(event) => { handleKey(event) ;
+                                handleMobileInputKey(event)}} />
                             </div>
 
                             <div className="w-fit">
@@ -93,13 +131,13 @@ console.log(concatenatedValue)
                             </div>
 
                         </div>
-                        <div className="w-[18.549rem] h-[1px] bg-login">
+                        <div className="w-full h-[1px] bg-login">
 
                         </div>
                     </div>
                     <div className="flex ">
-                        <div className=' w-[90%] mx-auto'><button type='submit' disabled={!isValid} className={isValid ? `bg-[#E7152A]  w-full h-16 rounded-full outline-none border-none banglaBold text-md` : ` w-full   bg-[#B70D1A] h-16 rounded-full outline-none border-none banglaBold text-md`}>ওটিপি পাঠান</button></div>
-                        {/* <NavLink to={`verify/${phone}`} className=' w-[90%] mx-auto'><button type='submit'  disabled={!inputSuccess} className={inputSuccess ? `bg-[#E7152A]  w-full h-16 rounded-full outline-none border-none banglaBold text-md` : ` w-full   bg-[#B70D1A] h-16 rounded-full outline-none border-none banglaBold text-md`}>ওটিপি পাঠান</button></NavLink> */}
+                        <div className=' w-[80%] mx-auto  h-[51px]'><button type='submit' disabled={!isValid} className={isValid ? `bg-[#E7152A]  w-full h-full rounded-full outline-none border-none banglaBold text-md` : ` w-full h-full  bg-[#B70D1A] md:h-16 rounded-full outline-none border-none banglaBold text-md`}>ওটিপি পাঠান</button></div>
+                       
                     </div>
                 </form>
             </div>

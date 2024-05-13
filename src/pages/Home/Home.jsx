@@ -30,22 +30,22 @@ const Home = () => {
             </div>
 
             {/* for mobile */}
-            <div className="w-8/12 mx-auto flex h-screen items-center md:hidden relative">
+            <div className="w-8/12 mx-auto flex h-screen items-center md:hidden relative ">
                 <div className="absolute bottom-16  right-0">
-                   <NavLink to={'/login'}><button className='btn border-none outline-none btn-circle bg-white'><MdKeyboardArrowRight className=' text-4xl text-login ' /></button></NavLink>
+                    <NavLink to={'/login'}><button className='btn border-none outline-none btn-circle bg-white'><MdKeyboardArrowRight className=' text-4xl text-login ' /></button></NavLink>
+                </div>
+                <div className="">
+                    <img className='w-fit' src={logoForSm} alt="" />
+                    <div className="text-white banglaBold text-xl">
+                        <p><span className='italic text-4xl me-2'>ব্লাড লাগবে</span> <span>অ্যাপ এ</span></p>
+                        <p>আপনাকে স্বাগতম!</p>
                     </div>
-                        <div className="">
-                            <img className='w-fit' src={logoForSm} alt="" />
-                            <div className="text-white banglaBold text-xl">
-                                <p><span className='italic text-4xl me-2'>ব্লাড লাগবে</span> <span>অ্যাপ এ</span></p>
-                                <p>আপনাকে স্বাগতম!</p>
-                            </div>
-                        </div>
-
                 </div>
 
-            </>
-            );
+            </div>
+
+        </>
+    );
 };
 
-            export default Home;
+export default Home;

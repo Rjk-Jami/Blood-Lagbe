@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 
 const usePhoneVerification = () => {
-    const [isValid , setValid]= useState(false)
      const verification = (phoneForSubmit)=>{
+        console.log(phoneForSubmit)
         const phoneRegex = /^(?:\+?88)?01[0-9]-?[0-9]{3}-?[0-9]{5}$/;
         if (phoneRegex.test(phoneForSubmit)) {
             // console.log(phoneForSubmit); 
-            // Logging the mobileNumber
-            setValid(true)
+            console.log("Logging the mobileNumber")
+            return true
         }
     
          else {
-            setValid(false)
+            return false
          }
-    
+   
     
     }
-    return { isValid , verification, setValid}
+    return {  verification, }
 };
 
 export default usePhoneVerification;
