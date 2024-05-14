@@ -1,12 +1,14 @@
+import { useContext } from 'react'
 import Background from './component/backgroundDesign/Background'
 import Copyright from './component/copyright/Copyright'
 import Navbar from './pages/shared/Navbar/Navbar'
 
 
 import { Outlet } from 'react-router-dom'
+import { GlobalVariableContext } from './component/Provider/GlobalVariable'
 
 function App() {
-
+  const {height} = useContext(GlobalVariableContext)
   return (
     <>
       <div className="overflow-hidden  relative">

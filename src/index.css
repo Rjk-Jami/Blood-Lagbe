@@ -11,13 +11,16 @@
 .banglaBold {
     font-family: banglaBold;
 }
+
 .banglaNav {
     font-family: banglaMed;
-    
+
 }
-.banglaNav:hover{
+
+.banglaNav:hover {
     font-family: banglaBold
 }
+
 @font-face {
     font-family: banglaLight;
     src: url(assets/font/HindSiliguri-Light.ttf);
@@ -26,6 +29,7 @@
 .banglaLight {
     font-family: banglaLight;
 }
+
 @font-face {
     font-family: banglaMed;
     src: url(assets/font/HindSiliguri-Medium.ttf);
@@ -34,6 +38,7 @@
 .banglaMed {
     font-family: banglaMed;
 }
+
 @font-face {
     font-family: banglaReg;
     src: url(assets/font/HindSiliguri-Regular.ttf);
@@ -42,6 +47,7 @@
 .banglaReg {
     font-family: banglaReg;
 }
+
 @font-face {
     font-family: banglaReg;
     src: url(assets/font/HindSiliguri-Regular.ttf);
@@ -50,6 +56,7 @@
 .banglaReg {
     font-family: banglaReg;
 }
+
 @font-face {
     font-family: banglaSemi;
     src: url(assets/font/HindSiliguri-SemiBold.ttf);
@@ -58,6 +65,7 @@
 .banglaSemi {
     font-family: banglaSemi;
 }
+
 @font-face {
     font-family: fontLogo;
     src: url(assets/font/Headline-Bangla-Unicode-Italic-1.ttf);
@@ -70,70 +78,85 @@
 .containerNew {
     width: 100%;
 }
+
 @media (min-width: 576px) {
     .containerNew {
         max-width: 576px;
     }
 }
+
 @media (min-width: 768px) {
     .containerNew {
         max-width: 675px;
     }
 }
+
 @media (min-width: 834px) {
     .containerNew {
         max-width: 741px;
     }
 }
+
 @media (min-width: 834px) {
     .containerNew {
         max-width: 741px;
     }
 }
+
 @media (min-width: 1200px) {
     .containerNew {
         max-width: 1047px;
     }
 }
+
 @media (min-width: 1366px) {
     .containerNew {
         max-width: 1214px;
     }
 }
+
 @media (min-width: 1440px) {
     .containerNew {
         max-width: 1287px;
     }
 }
+
 @media (min-width: 1536px) {
     .containerNew {
         max-width: 1387px;
     }
 }
-.hForLayout{
-    height: calc(100vh - 7.346rem) ;
+
+.hForLayout {
+    height: calc(100vh - 7.346rem);
 }
+
 @media (max-width: 1199px) {
     .hForLayout {
-        height: calc(100vh);
+        height: 100vh;
     }
 }
 
-.text-login{
+.text-login {
     color: #DF0707;
 }
-.bg-login{
+
+.bg-login {
     background-color: #DF0707;
 }
 
 @layer base {
+
     input[type="number"]::-webkit-inner-spin-button,
     input[type="number"]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+        -webkit-appearance: none;
+        margin: 0;
     }
-  }
-  
-  .text-b{
+}
+
+.text-b {
     color: #1E1E1E;
-  }
+}
+.text-g {
+    color: #9F9F9F;
+}

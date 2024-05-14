@@ -5,8 +5,8 @@ import usePhoneVerification from './usePhoneVerification';
 import { GlobalVariableContext } from '../component/Provider/GlobalVariable';
 
 const useTakeNumberAsBangla = () => {
-    const {phoneForSubmitMobile , setPhoneForSubmitMobile} = useContext(GlobalVariableContext)
-    const [phoneForSubmit, setPhoneForSubmit] = useState('');
+    const {takeNumberForAndroid , setTakeNumberForAndroid, takeNumberForPc, setTakeNumberForPc} = useContext(GlobalVariableContext)
+   
     const { verification } = usePhoneVerification()
     const toEn = n => n.replace(/[০-৯]/g, d => "০১২৩৪৫৬৭৮৯".indexOf(d));
     const { setValid} = useContext(GlobalVariableContext)
@@ -41,7 +41,7 @@ const useTakeNumberAsBangla = () => {
         else {
             inputText.push(key)
             const afterJoin = inputText.join("")
-            setPhoneForSubmit(afterJoin)
+            setTakeNumberForPc(afterJoin)
             // target.value = toBengaliNumber(key);
             target.value = toBengaliNumber(afterJoin);
 
@@ -53,7 +53,7 @@ const useTakeNumberAsBangla = () => {
         inputText.pop()
 
         const afterJoin = inputText.join("")
-        setPhoneForSubmit(afterJoin)
+        setTakeNumberForPc(afterJoin)
         // target.value = toBengaliNumber(key);
         target.value = toBengaliNumber(afterJoin);
 
@@ -69,7 +69,7 @@ const useTakeNumberAsBangla = () => {
         // console.log(replace)
             inputText.push(replace)
             const afterJoin = inputText.join("")
-            setPhoneForSubmit(afterJoin)
+            setTakeNumberForPc(afterJoin)
             // target.value = toBengaliNumber(key);
             target.value = toBengaliNumber(afterJoin);
 
@@ -81,21 +81,6 @@ const useTakeNumberAsBangla = () => {
         event.preventDefault()
 
     }
-    
-    
-    else{
-       
-        
-    }
-    
-
-
-    console.log(inputText)
-
-
-
-
-
 
    }
 
@@ -112,13 +97,14 @@ let userInput = ''
             userInput =event.target.value 
             const userInputEn = toEn(userInput);
             const numbersOnly = userInputEn.replace(/\D/g, '');
+
             
             event.target.value = numBang(numbersOnly)
             console.log(numbersOnly,numbersOnly?.length, "userInput is not nan");
             
             if (numbersOnly.length === 11) {
                 // setInputSuccess(true);
-                setPhoneForSubmitMobile(numbersOnly)
+                setTakeNumberForAndroid(numbersOnly)
                 console.log("goverif" ,numbersOnly )
                 setValid(verification(numbersOnly))
             }
@@ -133,7 +119,7 @@ let userInput = ''
        
      
 
-    return { handleInputChange, inputText, phoneForSubmit, handleMobileInputKey  }
+    return { handleInputChange,  handleMobileInputKey  }
 };
 
 export default useTakeNumberAsBangla;

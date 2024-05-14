@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 
 const usePhoneVerification = () => {
-     const verification = (phoneForSubmit)=>{
-        console.log(phoneForSubmit)
+     const verification = (num)=>{
+        console.log(num)
         const phoneRegex = /^(?:\+?88)?01[0-9]-?[0-9]{3}-?[0-9]{5}$/;
-        if (phoneRegex.test(phoneForSubmit)) {
-            // console.log(phoneForSubmit); 
+        if (phoneRegex.test(num)) {
+            // console.log(num); 
             console.log("Logging the mobileNumber")
             return true
         }

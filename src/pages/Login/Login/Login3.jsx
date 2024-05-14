@@ -7,23 +7,25 @@ import useTakeNumberAsBangla from '../../../hooks/useTakeNumberAsBangla';
 import { numBang } from 'bang-utils';
 import { GlobalVariableContext } from '../../../component/Provider/GlobalVariable';
 const Login3 = () => {
-    // const [phoneForSubmit, setPhoneForSubmit] = useState('');
+    
+    
     const toEn = n => n.replace(/[০-৯]/g, d => "০১২৩৪৫৬৭৮৯".indexOf(d));
-    const {isValid, setValid , phoneForSubmitMobile} = useContext(GlobalVariableContext)
+    const {isValid, setValid , takeNumberForAndroid , takeNumberForPc , location, setLocation} = useContext(GlobalVariableContext)
 
 
     const navigate = useNavigate()
     const inputs = useRef([]);
     const {  verification } = usePhoneVerification()
-    // let inputText = []
-    // const { phoneForSubmit } = useTakeNumberAsBangla()
-    const { handleInputChange ,phoneForSubmit, handleMobileInputKey } = useTakeNumberAsBangla()
+   
+    // const { takeNumberForPc } = useTakeNumberAsBangla()
+    const { handleInputChange , handleMobileInputKey } = useTakeNumberAsBangla()
     useEffect(() => {
         const phoneInput = document.getElementById("phone");
         if (phoneInput) {
             phoneInput.addEventListener('keydown', handleInputChange);
         }
-
+        setValid(false)
+        setLocation(false)
         return () => {
             if (phoneInput) {
                 phoneInput.removeEventListener('keydown', handleInputChange);
@@ -31,7 +33,7 @@ const Login3 = () => {
         };
     }, []);
     const handleKey = (event) => {
-        let concatenatedValue = phoneForSubmit;
+        let concatenatedValue = takeNumberForPc;
 // console.log(concatenatedValue)
 // console.log("object")
         // const inputCode = toEn(concatenatedValue)
@@ -42,10 +44,10 @@ const Login3 = () => {
             if (inputCode.length === 11  ) {
                 // setInputSuccess(true);
                 console.log("pc valid")
-                setValid(verification(phoneForSubmit))
+                setValid(verification(takeNumberForPc))
             }
             else {
-                setValid(verification(phoneForSubmit))
+                setValid(verification(takeNumberForPc))
             }
         }
 
@@ -75,13 +77,13 @@ const Login3 = () => {
     const handleSubmit = (event) => {
        console.log(event)
 
-        if (isValid && phoneForSubmit) {
-            console.log(phoneForSubmit); // Logging the mobileNumber
-            navigate(`/login/verify/${phoneForSubmit}`)
+        if (isValid && takeNumberForPc) {
+            console.log(takeNumberForPc); // Logging the mobileNumber
+            navigate(`/login/verify/${takeNumberForPc}`)
         }
-        else if(isValid && phoneForSubmitMobile){
-            console.log(phoneForSubmitMobile); // Logging the mobileNumber
-            navigate(`/login/verify/${phoneForSubmitMobile}`)
+        else if(isValid && takeNumberForAndroid){
+            console.log(takeNumberForAndroid); // Logging the mobileNumber
+            navigate(`/login/verify/${takeNumberForAndroid}`)
         }
 
         event.preventDefault()
@@ -136,7 +138,7 @@ const Login3 = () => {
                         </div>
                     </div>
                     <div className="flex ">
-                        <div className=' w-[80%] mx-auto  h-[51px]'><button type='submit' disabled={!isValid} className={isValid ? `bg-[#E7152A]  w-full h-full rounded-full outline-none border-none banglaBold text-md` : ` w-full h-full  bg-[#B70D1A] md:h-16 rounded-full outline-none border-none banglaBold text-md`}>ওটিপি পাঠান</button></div>
+                        <div className=' w-[80%] mx-auto  h-[51px]'><button type='submit' disabled={!isValid} className={isValid ? `bg-[#E7152A]  w-full h-full md:h-16 rounded-full outline-none border-none banglaBold text-md` : ` w-full h-full  bg-[#B70D1A] md:h-16 rounded-full outline-none border-none banglaBold text-md`}>ওটিপি পাঠান</button></div>
                        
                     </div>
                 </form>

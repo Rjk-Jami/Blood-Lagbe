@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/svg/LogoSvg.svg'
 import logoForSm from '../../assets/svg/logoForSm.svg'
 import { NavLink } from 'react-router-dom';
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { GlobalVariableContext } from '../../component/Provider/GlobalVariable';
 
 const Home = () => {
+    const {height} = useContext(GlobalVariableContext)
+
+
     return (
         <>
 
-            <div className="hidden md:flex lg:items-center justify-center relative z-50" style={{ height: "calc(100vh - 7.346rem)" }}>
+            <div className="hidden md:flex lg:items-center justify-center relative z-50 hForLayout" >
                 <div className="text-white flex flex-col lg:flex-row lg:mt-[1rem] xl:mt-[0rem] md:mt-[1rem] m:mt-[4.438rem] h-fit ">
                     <div className="hidden md:block  xl:ms-[1.5rem] lg:ms-[.2rem] md:text-center lg:text-left">
                         <p className='banglaBold 2xl:text-[2rem] md:text-[1.5rem]'>আপনার আশেপাশে</p>
@@ -30,7 +34,7 @@ const Home = () => {
             </div>
 
             {/* for mobile */}
-            <div className="w-8/12 mx-auto flex h-screen items-center md:hidden relative ">
+            <div className={`w-8/12 mx-auto flex items-center md:hidden relative`}  style={{ height: `${height}px` }}>
                 <div className="absolute bottom-16  right-0">
                     <NavLink to={'/login'}><button className='btn border-none outline-none btn-circle bg-white'><MdKeyboardArrowRight className=' text-4xl text-login ' /></button></NavLink>
                 </div>
